@@ -2,7 +2,8 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<title>Dev ❤️ Priya</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dev  Priya</title>
 
 <style>
 body {
@@ -16,7 +17,7 @@ body {
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* ✨ Stars */
+/*  Stars */
 body::before {
   content: "";
   position: absolute;
@@ -33,7 +34,7 @@ body::before {
   to {opacity: 1;}
 }
 
-/* 💖 Card */
+/*  Card */
 .card {
   background: white;
   border-radius: 20px;
@@ -42,7 +43,7 @@ body::before {
   text-align: center;
   box-shadow: 0 15px 40px rgba(0,0,0,0.6);
   z-index: 2;
-  animation: fadeIn 2s ease;
+  animation: fadeIn 1.5s ease;
 }
 @keyframes fadeIn {
   from {opacity: 0; transform: scale(0.9);}
@@ -58,12 +59,12 @@ img {
 h1 { color: #e91e63; }
 
 p {
-  font-size: 17px;
+  font-size: 16px;
   color: #444;
   line-height: 1.6;
 }
 
-/* 🌹 Roses */
+/*  Roses */
 .rose {
   position: fixed;
   top: -50px;
@@ -83,11 +84,8 @@ p {
   cursor: pointer;
   font-weight: bold;
 }
-.love-btn { color: #e91e63; cursor: pointer; }
-.whatsapp {
-  background: #25D366;
-  color: white;
-}
+.play { background:#e91e63; color:white; }
+.whatsapp { background:#25D366; color:white; }
 
 /* Popup */
 .popup {
@@ -106,90 +104,87 @@ p {
   text-align: center;
   max-width: 300px;
 }
-.yes {
-  background: #e91e63;
-  color: white;
-}
-.no {
-  background: #ccc;
-}
+.yes { background:#e91e63; color:white; }
+.no { background:#ccc; }
 </style>
 </head>
 
 <body>
 
-<!-- 🎶 Music -->
-<audio autoplay loop>
+<!--  Music (mobile safe) -->
+<audio id="bgMusic" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- 🌹 Falling Roses -->
+<!--  Falling Roses -->
 <script>
-for(let i=0;i<25;i++){
-  let rose=document.createElement("div");
-  rose.className="rose";
-  rose.innerHTML="🌹";
-  rose.style.left=Math.random()*100+"vw";
-  rose.style.animationDuration=(5+Math.random()*6)+"s";
-  document.body.appendChild(rose);
+for(let i=0;i<30;i++){
+  let r=document.createElement("div");
+  r.className="rose";
+  r.innerHTML="";
+  r.style.left=Math.random()*100+"vw";
+  r.style.animationDuration=(5+Math.random()*5)+"s";
+  document.body.appendChild(r);
 }
 </script>
 
 <div class="card">
   <img src="love.jpg" alt="Dev Priya">
-  <h1>দেব ❤️ প্রিয়া</h1>
+  <h1>  </h1>
+
+  <button class="btn play" onclick="playMusic()"> Play Our Love Song</button>
+
   <p>
-    দেবের প্রতিটা নিঃশ্বাসে প্রিয়ার ছোঁয়া,<br>
-    প্রিয়ার ভালোবাসায় দেবের জীবন ভরানো।<br>
-    এই হৃদয় আজীবন শুধু একটাই প্রার্থনা করে,<br>
-    হে ভগবান—প্রিয়াকে দেবের সাথেই বেঁধে রেখো।
+        ,<br>
+        <br>
+          ,<br>
+         
   </p>
 
-  <div class="love-btn" onclick="openPopup()">💖 Will you be mine forever?</div>
+  <div onclick="openPopup()" style="color:#e91e63;cursor:pointer;font-weight:bold;">
+     Will you be mine forever?
+  </div>
 
-  <!-- 💚 WhatsApp Share -->
-  <button class="btn whatsapp" onclick="shareWhatsApp()">
-    📲 Share on WhatsApp
-  </button>
+  <button class="btn whatsapp" onclick="shareWhatsApp()"> Share on WhatsApp</button>
 </div>
 
-<!-- 💍 Proposal Popup -->
+<!--  Popup -->
 <div class="popup" id="popup">
   <div class="popup-content">
-    <h2>💍 Priya, do you love Dev?</h2>
-    <button class="btn yes" onclick="yesLove()">Yes ❤️</button>
-    <button class="btn no" onclick="closePopup()">No 🙈</button>
+    <h2> Priya, do you love Dev?</h2>
+    <button class="btn yes" onclick="yesLove()">Yes </button>
+    <button class="btn no" onclick="closePopup()">No </button>
   </div>
 </div>
 
 <script>
 function vibrate(){
-  if(navigator.vibrate){
-    navigator.vibrate([200,100,200]);
-  }
+  if(navigator.vibrate) navigator.vibrate([200,100,200]);
+}
+
+function playMusic(){
+  vibrate();
+  document.getElementById("bgMusic").play();
 }
 
 function openPopup(){
   vibrate();
   document.getElementById("popup").style.display="flex";
 }
-
 function closePopup(){
   document.getElementById("popup").style.display="none";
 }
-
 function yesLove(){
   vibrate();
   document.querySelector(".popup-content").innerHTML =
-    "<h2>💖 She Said YES 💖</h2><p>Dev & Priya — Forever ♾️</p>";
+    "<h2> She Said YES </h2><p>Dev & Priya  Forever </p>";
 }
-
 function shareWhatsApp(){
   vibrate();
-  const text = encodeURIComponent(
-    "💖 Dev ❤️ Priya 💖\nA special love surprise for you 💌\nClick here 👉 " + window.location.href
+  const t = encodeURIComponent(
+    " Dev  Priya \nA special love surprise \nClick  " + location.href
   );
-  window.open("https://wa.me/?text=" + text, "_blank");
+  window.open("https://wa.me/?text="+t,"_blank");
 }
 </script>
 
